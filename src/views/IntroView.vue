@@ -1,9 +1,8 @@
 <template>
   <v-app>
-    <v-main>
-      <div class="intro">
-        <HelloWorld /></div
-    ></v-main>
+    <div class="intro">
+      <HelloWorld />
+    </div>
   </v-app>
 </template>
 
