@@ -1,7 +1,9 @@
 <template>
-  <v-container>
-    <h1>intropage</h1>
-  </v-container>
+  <v-main>
+    <v-container>
+      <h1>intropage</h1>
+    </v-container>
+  </v-main>
 </template>
 
 <script>

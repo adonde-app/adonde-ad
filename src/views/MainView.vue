@@ -1,15 +1,18 @@
 <template>
-  <v-app>
-    <v-main>
-      <h1>mainpage</h1>
-      <h2>{{ name }}</h2>
-    </v-main>
+  <v-app style="background-color: #a0dcb0">
+    <Frame />
+    <h1>mainpage</h1>
+    <h2>{{ name }}</h2>
   </v-app>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
+import Frame from "@/components/Frame.vue";
 export default {
+  components: {
+    Frame,
+  },
   data() {
     return {};
   },

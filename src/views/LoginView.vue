@@ -1,14 +1,32 @@
 <template>
-  <v-app>
+  <v-app style="background-color: #44ad5e">
     <v-layout>
       <v-flex xs6 sm5 md4 lg3 xl2 style="position: relative; margin: auto">
-        <h1>login page</h1>
+        <div class="d-flex align-center">
+          <v-img
+            alt="Logo"
+            contain
+            :src="require(`@/assets/logo.png`)"
+            transition="scale-transition"
+            width="50"
+          />
+          <v-img
+            alt="adonde"
+            contain
+            :src="require(`@/assets/adonde.png`)"
+            transition="scale-transition"
+            width="100"
+          />
+        </div>
+        <!-- <div style="color: white">advert</div> -->
+        <br />
+
         <v-form ref="form" v-model="loginValid" lazy-validation>
           <v-text-field
             v-model="loginId"
             :rules="idRules"
-            label="Id"
-            outlined
+            label="ID"
+            clearable
             required
           ></v-text-field>
 
@@ -21,16 +39,17 @@
             label="PW"
             class="input-group--focused"
             @click:append="loginPwShow = !loginPwShow"
-            outlined
+            clearable
             required
           ></v-text-field>
         </v-form>
 
         <v-btn
           :disabled="!loginValid"
-          color="primary"
+          color="warning"
           class="mr-4"
           @click="validateCheck"
+          large
         >
           로그인
         </v-btn>
@@ -59,6 +78,7 @@ export default {
     },
     async login() {
       console.log("login btn click");
+      this.$router.push({ path: "/main" });
     },
 
     resetValidation() {
