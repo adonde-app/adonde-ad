@@ -3,15 +3,18 @@
     <Frame />
     <h1>mainpage</h1>
     <h2>{{ name }}</h2>
+    <AdTable />
   </v-app>
 </template>
 
 <script>
 import { mapState, mapMutations } from "vuex";
 import Frame from "@/components/Frame.vue";
+import AdTable from "@/components/AdTable.vue";
 export default {
   components: {
     Frame,
+    AdTable,
   },
   data() {
     return {};
