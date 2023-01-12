@@ -3,21 +3,45 @@
     <Frame />
     <h1>mainpage</h1>
     <h2>{{ name }}</h2>
-    <AdTable />
+    <div class="for-button">
+
+      <v-btn v-if='!showCreateAd' v-on:click='newAd' class="mx-2" fab dark color="indigo">
+        <v-icon dark>
+          mdi-plus
+        </v-icon>
+      </v-btn>
+
+      <v-btn v-else v-on:click='closeNewAd' class="mx-2" fab dark color="indigo">
+        <v-icon dark>
+          mdi-format-list-bulleted-square
+        </v-icon>
+      </v-btn>
+      
+  </div>
+    <createAd v-if='showCreateAd' />
+    <AdTable v-if='showTable' />
   </v-app>
 </template>
 
 <script>
+
+
 import { mapState, mapMutations } from "vuex";
 import Frame from "@/components/Frame.vue";
 import AdTable from "@/components/AdTable.vue";
+import createAd from "@/components/createAd.vue";
+
 export default {
   components: {
     Frame,
     AdTable,
+    createAd,
   },
   data() {
-    return {};
+    return {
+      showCreateAd: false,
+      showTable: true,
+    };
   },
   computed: {
     ...mapState(["name"]),
@@ -25,6 +49,14 @@ export default {
   methods: {
     //함수 넣으면 됨
     ...mapMutations([]),
+    newAd(){
+      this.showTable = false
+      this.showCreateAd = true
+    },
+    closeNewAd(){
+      this.showTable = true
+      this.showCreateAd = false
+    }
   },
   mounted() {
     //페이지가 다시 불릴때 마다 불러짐
@@ -35,3 +67,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.for-button{
+  display:flex;
+  justify-content: right;
+}
+</style>

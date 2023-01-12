@@ -1,7 +1,7 @@
 <template>
     <v-card class="card">
     <v-card-title>
-     <p class="card-name">Advertisements</p>
+     <p class="card-name">My Advertisements</p>
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -22,23 +22,23 @@
       :search="search"
       @click:row="handleClick"
     ></v-data-table>
-    <div v-if="indexAd">
-        <ViewAd @removeViewAd=removeShowAd v-bind:adInfo='adInfo'/>
+    <div v-if="indexMyAd">
+        <ViewMyAd @removeViewAd=removeShowAd v-bind:adInfo='adInfo'/>
     </div>
     </v-card>
   </template>
   
   <script>
   import axios from 'axios'
-  import ViewAd from "@/components/ViewAd.vue"
+  import ViewMyAd from "@/components/ViewMyAd.vue"
 
   export default {
     components: {
-        ViewAd,
+        ViewMyAd,
     },
     data () {
         return {
-            indexAd: false,
+            indexMyAd: false,
             adInfo: {},
             search: '',
             headers:[
@@ -59,7 +59,15 @@
         }
     },
     async created (){
-        axios.get('http://localhost:3000/ad/findAll')
+        //TODO: change this to ad/user/findAll once login is implemented
+        const options = {
+            url: 'http://localhost:3000/ad/user/findAll',
+            data: [
+            {
+                userID: 104,
+            }]
+        }
+        axios.put('http://localhost:3000/ad/user/findAll', {userID: 104})
             .then((data) => {
                 console.log(data.data)
                 data.data.forEach((ad) => {
@@ -78,15 +86,16 @@
 
                     })
                 })
-            })
+            }).catch(err => console.log(err))
     },
     methods:{
         handleClick(row){
             this.adInfo = row
-            this.indexAd = true
+            console.log(row)
+            this.indexMyAd = true
         },
         removeShowAd(){
-            this.indexAd=false
+            this.indexMyAd=false
         }
     }
   }
