@@ -4,10 +4,12 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  modules: {
+   // user,
+  },
   state: {
     //주로 많이씀
     //값을 저장하는 객체
-    name: "adonde-ad",
   },
   getters: {
     //state값을 반환하는 함수로 computed 속성이 들어있다

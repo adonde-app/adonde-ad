@@ -141,9 +141,10 @@
             }
             
           },
-          update(){
+          async update(){
             console.log('update!')
-            axios.put('http://localhost:3000/ad/update', { 
+
+              axios.put('http://localhost:3000/ad/update', { 
                 id: this.adInfo.id,
                 comp_name: this.comp_name,
                 comp_email: this.comp_email,
@@ -152,7 +153,11 @@
                 description: this.description,
                 url: this.link,
              })
-             this.$router.push({path:'/mypage'})
+             alert('Ad updated. Please refresh the page')
+           
+            
+            //  console.log('logging res..\n\n')
+            //  this.$router.push({path:'/mypage'})
             // window.location.replace("http://localhost:8080/mypage")
           },
           close() {

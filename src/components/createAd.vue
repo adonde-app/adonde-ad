@@ -22,6 +22,8 @@
         <label>링크: </label>
         <input type="link" name='url' required v-model="link">
 
+        <input type="hidden" name="userID" :value=this.user_id />
+
         <div class="submit for-submit">
             <button>Submit</button>
         </div>
@@ -36,9 +38,10 @@ export default {
             comp_name: '',
             email: '',
             subject: '',
-            produce_name: '',
+            product_name: '',
             description: '',
-            link: ''
+            link: '',
+            user_id: localStorage.getItem('user_id'),
         }
     }
 }

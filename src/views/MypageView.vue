@@ -1,7 +1,7 @@
 <template>
   <v-app style="background-color: #a0dcb0">
     <Frame />
-    <h1>mypage</h1>
+    <h2 style="margin-top:80px;">{{ username }}님의 광고</h2>
     <MyAdTable v-if="showMyTable" />
 
   </v-app>
@@ -20,6 +20,7 @@ export default {
   data() {
     return {
       showMyTable: true,
+      username: localStorage.getItem('username')
     };
   },
   computed: {

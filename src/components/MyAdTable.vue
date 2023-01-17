@@ -55,19 +55,13 @@
           { text: 'url', value: 'url' },
           { text: '조회수', value: 'views' },
         ],
-            ads: []
+            ads: [],
+            user_id: localStorage.getItem('user_id')
         }
     },
     async created (){
-        //TODO: change this to ad/user/findAll once login is implemented
-        const options = {
-            url: 'http://localhost:3000/ad/user/findAll',
-            data: [
-            {
-                userID: 104,
-            }]
-        }
-        axios.put('http://localhost:3000/ad/user/findAll', {userID: 104})
+
+        axios.put('http://localhost:3000/ad/user/findAll', {userID: this.user_id})
             .then((data) => {
                 console.log(data.data)
                 data.data.forEach((ad) => {

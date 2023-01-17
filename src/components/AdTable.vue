@@ -1,6 +1,9 @@
 <template>
     <v-card class="card">
     <v-card-title>
+        <div class="user">
+            <!-- {{ user.name }} -->
+        </div>
      <p class="card-name">Advertisements</p>
       <v-spacer></v-spacer>
       <v-text-field
@@ -31,6 +34,8 @@
   <script>
   import axios from 'axios'
   import ViewAd from "@/components/ViewAd.vue"
+//   import { mapGetters, mapState, mapMutations } from "vuex"
+  import store from '../store'
 
   export default {
     components: {
@@ -55,7 +60,7 @@
           { text: 'url', value: 'url' },
           { text: '조회수', value: 'views' },
         ],
-            ads: []
+            ads: [],
         }
     },
     async created (){
@@ -88,6 +93,9 @@
         removeShowAd(){
             this.indexAd=false
         }
+    },
+    computed: {
+        // ...mapGetters(['getUser'])
     }
   }
 </script>
