@@ -1,6 +1,8 @@
-import { initializeApp } from "firebase/app"
-import { getStorage } from "firebase/storage"
+import firebase from "firebase/app"
+import "firebase/storage"
 
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://firebase.google.com/docs/web/learn-more#config-object
 const firebaseConfig = {
     apiKey: process.env.FIRE_BASE_API_KEY,
     authDomain: process.env.AUTH_DOMAIN,
@@ -11,10 +13,12 @@ const firebaseConfig = {
     measurementId: process.env.MEASUREMENT_ID,
   };
 
-  // Initialize Firebase
-const firebase = initializeApp(firebaseConfig)
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
 
-//Initialize Cloud Storage and get a reference to the service
-const storage = getStorage(firebase)
 
-export {firebase, storage}
+// Initialize Cloud Storage and get a reference to the service
+const storage = firebase.storage()
+
+export { storage }
+

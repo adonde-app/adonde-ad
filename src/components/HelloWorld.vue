@@ -11,12 +11,14 @@
 
 <script>
 
+const { firebase, storage } = require('../firebase/firebase')
+
 export default {
   name: "HelloWorld",
   methods: {
     uploadImage(e){
       let file = e.target.files[0]
-      let storageRef = firebase.storage().ref('ad/' + file.name)
+      let storageRef = storage.ref('ad/' + file.name)
       storageRef.put(file)
       console.log(e.target.files[0])
     }
