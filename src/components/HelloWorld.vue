@@ -5,24 +5,46 @@
 
         <input type="file" id="image" @change="uploadImage"/>
 
+        <img id="img"></img>
+
+
     </v-container>
   </v-main>
 </template>
 
 <script>
 
-const { firebase, storage } = require('../firebase/firebase')
-
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import { storage } from "../firebase/firebase"
 export default {
-  name: "HelloWorld",
+  data: () => ({
+    _img: "",
+  }), 
   methods: {
-    uploadImage(e){
+    async uploadImage(e){
       let file = e.target.files[0]
-      let storageRef = storage.ref('ad/' + file.name)
-      storageRef.put(file)
-      console.log(e.target.files[0])
-    }
-  }
+      let storageRef = ref(storage)
+      let adStorageRef = ref(storage, 'ad/')
+      let fileRef = ref(storage, 'ad/' + file.name)
+      const path = fileRef.fullPath
+      const name = fileRef.name
+      console.log(`filepath: ${path}`)
+      console.log( `filename: ${name}`)
+      uploadBytes(fileRef, file).then((snapshot) => {
+        console.log('uploaded smth')
+        return getDownloadURL(fileRef)
+      })
+      .then((url) => {
+        console.log('logging url...\n\n')
+        console.log(url)
+        document.querySelector('#img').src = url
+      })
+      .catch(err => console.log(err))
+
+      // console.log(e.target.files[0])
+    },
+  }, 
+
   // data(){
   //   return {
   //     imageData: null,
