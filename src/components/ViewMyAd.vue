@@ -125,10 +125,6 @@
           link: '',
           selection: 1,
         }),
-        mounted(){
-          console.log('logging viewmyAd')
-          console.log(this.adInfo.img_url)
-        },
     
         methods: {
           edit(){

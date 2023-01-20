@@ -17,7 +17,7 @@
 
     <v-img
       height="250"
-      v-bind:src=adInfo.image
+      v-bind:src=adInfo.img_url
     ></v-img>
 
     <!-- <h1>{{ adInfo.image }}</h1> -->
