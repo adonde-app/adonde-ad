@@ -44,7 +44,8 @@
     
         <v-img
           height="250"
-          src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+          v-bind:src=adInfo.img_url
+          alt="no image"
         ></v-img>
     
         <!-- <h1>{{ adInfo.image }}</h1> -->
@@ -124,6 +125,10 @@
           link: '',
           selection: 1,
         }),
+        mounted(){
+          console.log('logging viewmyAd')
+          console.log(this.adInfo.img_url)
+        },
     
         methods: {
           edit(){

@@ -17,7 +17,7 @@
 
     <v-img
       height="250"
-      src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+      v-bind:src=adInfo.image
     ></v-img>
 
     <!-- <h1>{{ adInfo.image }}</h1> -->

@@ -47,13 +47,13 @@
             adInfo: {},
             search: '',
             headers:[
+          { text: 'id', value: 'id' },
           {
             text: 'Image',
             align: 'start',
             sortable: false,
             value: 'image',
           },
-          { text: 'id', value: 'id' },
           { text: '회사명', value: 'compName' },
           { text: '제품명', value: 'productName' },
           { text: '등록일', value: 'date' },
@@ -69,7 +69,7 @@
                 console.log(data.data)
                 data.data.forEach((ad) => {
                     this.ads.push({
-                        image: 'Frozen Yogurt',
+                        image: ad.img ? "O" : "X",
                         id: ad.id,
                         compName: ad.comp_name,
                         productName: ad.name,
@@ -77,6 +77,7 @@
                         url: ad.url,
                         views: ad.views,
 
+                        img_url : ad.img ? ad.img : "https://firebasestorage.googleapis.com/v0/b/adonde-app.appspot.com/o/ad%2Fno_image.jpeg?alt=media&token=295b1c9a-0370-4d86-9704-b18d080e6d0a",
                         email: ad.comp_email,
                         subject: ad.subject,
                         description: ad.description,
