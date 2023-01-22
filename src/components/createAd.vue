@@ -22,7 +22,7 @@
         <label>링크: </label>
         <input type="link" name='url' required v-model="link">
 
-        <input type="hidden" name="img" :value=this.img_url></input>
+        <input type="hidden" name="img" :value=this.img_url />
 
         <input type="hidden" name="userID" :value=this.user_id />
 
