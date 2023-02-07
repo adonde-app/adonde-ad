@@ -22,7 +22,9 @@ export default{
                 domain: window.location.origin
             }
             //user info from backend
-            const response = await axios.post('http://localhost:3000/login', body, {})
+            //CHANGED FOR DEPLOYMENT
+            //const response = await axios.post('http://localhost:3000/login', body, {})
+            const response = await axios.post('https://adonde-ad.netlify.app/login', body, {})
             console.log('loggign email..\n\n')
             console.log(JSON.stringify(response.data.kakao_account.email))
 
