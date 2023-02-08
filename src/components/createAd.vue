@@ -1,7 +1,7 @@
 <template>
     <div class="contaienr">
     <!-- <form ref="form" action="http://localhost:3000/ad/create" method="POST"> -->
-        <form ref="form" action="https://adonde-kr.herokuapp.com/ad/create" method="POST"></form>
+        <form ref="form" action="https://adonde-kr.herokuapp.com/ad/create" method="POST">
         <label>회사이름: </label>
         <input type="comp_name" name='comp_name' required v-model="comp_name">
 
