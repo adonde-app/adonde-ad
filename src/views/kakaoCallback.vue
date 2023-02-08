@@ -26,6 +26,11 @@ export default{
             //const response = await axios.post('http://localhost:3000/login', body, {})
             //const response = await axios.post('https://adonde-ad.netlify.app/login', body, {})
             const response = await axios.post('https://adonde-kr.herokuapp.com/login', body, {})
+
+            console.log('logging response..\n\n')
+            console.log(response)
+            console.log('logging response.data..\n\n')
+            console.log(response.data)
             console.log('loggign email..\n\n')
             console.log(JSON.stringify(response.data.kakao_account.email))
 
