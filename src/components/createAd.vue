@@ -82,6 +82,8 @@ export default {
                 }).then(() => {
                     this.$refs.form.submit()
                 }).catch(err => console.log(err))
+            }else{
+                this.$refs.form.submit()
             }
         }
     }, 
