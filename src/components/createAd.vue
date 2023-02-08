@@ -83,6 +83,7 @@ export default {
                     this.$refs.form.submit()
                 }).catch(err => console.log(err))
             }else{
+                console.log('no image...')
                 this.$refs.form.submit()
             }
         }
