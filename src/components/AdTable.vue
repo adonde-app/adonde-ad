@@ -64,7 +64,9 @@
         }
     },
     async created (){
-        axios.get('http://localhost:3000/ad/findAll')
+        //to be changed upon deployment
+        // axios.get('http://localhost:3000/ad/findAll')
+        axios.get('https://adonde-kr.herokuapp.com/ad/findAll')
             .then((data) => {
                 console.log(data.data)
                 data.data.forEach((ad) => {

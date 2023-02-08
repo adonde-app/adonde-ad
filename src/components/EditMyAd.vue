@@ -71,7 +71,9 @@
           dElete(){
             console.log('delete clicked')
             if (confirm('Are you sure you want to delete this ad?')) {
-                axios.put('http://localhost:3000/ad/deleteById', {id: this.adInfo.id})
+              //to be updated upon deployment
+                // axios.put('http://localhost:3000/ad/deleteById', {id: this.adInfo.id})
+                axios.put('https://adonde-kr.herokuapp.com/ad/deleteById', {id: this.adInfo.id})
                 alert('Please refresh the page')
             } else {
                 console.log('canceled.')

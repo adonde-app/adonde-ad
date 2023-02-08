@@ -66,7 +66,7 @@
         <div v-else class="editContainer">
             <h3 style="color:black">조회수: {{ adInfo.views }}</h3>
             <h3 style="color:black">등록일: {{ adInfo.date }}</h3>
-            <form ref="form" action="https://localhost:3000/ad/update" id="form1" method="PUT">
+            <form ref="form" action="https://adonde-kr.herokuapp.com/ad/update" id="form1" method="PUT">
               <input type="hidden" name="id" v-model="id" />
 
                 <div class="one-liner">
@@ -191,7 +191,7 @@
                   this.img_url = url})
                 .then(() => {
                   console.log('submitting form with new image...')
-                  axios.put('http://localhost:3000/ad/update', { 
+                  axios.put('https://adonde-kr.herokuapp.com//ad/update', { 
                     id: this.adInfo.id,
                     comp_name: this.comp_name,
                     comp_email: this.comp_email,

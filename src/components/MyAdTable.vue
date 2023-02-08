@@ -61,8 +61,9 @@
         }
     },
     async created (){
-
-        axios.put('http://localhost:3000/ad/user/findAll', {userID: this.user_id})
+        //to be updated upon deployment
+        // axios.put('http://localhost:3000/ad/user/findAll', {userID: this.user_id})
+        axios.put('https://adonde-kr.herokuapp.com//ad/user/findAll', {userID: this.user_id})
             .then((data) => {
                 console.log(data.data)
                 data.data.forEach((ad) => {
