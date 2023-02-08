@@ -167,7 +167,9 @@
                   }).catch(err => console.log(err))
                   
                 }
-                axios.put('http://localhost:3000/ad/deleteById', {id: this.adInfo.id})
+                //to be updated upon deployment
+                // axios.put('http://localhost:3000/ad/deleteById', {id: this.adInfo.id})
+                axios.put('https://adonde-kr.herokuapp.com/ad/deleteById', {id: this.adInfo.id})
                 alert('Ad deleted. Please refresh the page')
             } else {
                 console.log('canceled.')
@@ -206,7 +208,9 @@
             }else{
               console.log('updating ad without image file...')
               // this.$refs.form.submit()
-              axios.put('http://localhost:3000/ad/update', { 
+              //to be updated upon deployment
+              // axios.put('http://localhost:3000/ad/update', { 
+              axios.put('https://adonde-kr.herokuapp.com/ad/update', { 
                 id: this.adInfo.id,
                 comp_name: this.comp_name,
                 comp_email: this.comp_email,
